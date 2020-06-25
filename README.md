@@ -1,7 +1,7 @@
 # Kata: Predicados y Variables
 
 - `TODO: Agregar badge`
-- `TODO: Agregar integrante`
+- Gaspar Habif (gasparhabif)
 
 ## Parrilla 
 
