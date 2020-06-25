@@ -1,6 +1,6 @@
 # Kata: Predicados y Variables
+[![Build Status](https://travis-ci.com/pdep-mn-utn/kata-logico-01-gasparhabif.svg?token=yzhkPDVEJvW1rghB4QyV&branch=master)](https://travis-ci.com/pdep-mn-utn/kata-logico-01-gasparhabif)
 
-- `TODO: Agregar badge`
 - Gaspar Habif (gasparhabif)
 
 ## Parrilla 
