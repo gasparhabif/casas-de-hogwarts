@@ -6,26 +6,12 @@
     A =:= 3.
   
   % Test gustos de Jocelyn
-  test(gustoJocelynMollejas, [nondet]) :- 
-    gusto(jocelyn, Comida), 
-    Comida == mollejas.
-  test(gustoJocelynPapas, [nondet]) :- 
-    gusto(jocelyn, Comida), 
-    Comida == papaAlPlomo.
-  test(gustoJocelynProvoleta, [nondet]) :- 
-    gusto(jocelyn, Comida), 
-    Comida == provoleta.
+  test(gustosDeJocelyn, set(Comida == [mollejas, papaAlPlomo, provoleta])) :- 
+    gusto(jocelyn, Comida).
 
   % Test gustos de Jean Gourmet
-  test(gustoJocelynAsado, [nondet]) :- 
-    gusto(jeanGourmet, Comida), 
-    Comida == asadoDeTira.
-  test(gustoJocelynMollejas, [nondet]) :- 
-    gusto(jeanGourmet, Comida),
-    Comida == mollejas.
-  test(gustoJocelynChinchu, [nondet]) :- 
-    gusto(jeanGourmet, Comida), 
-    Comida == chinchulines.
+  test(gustosDeJean, set(Comida == [asadoDeTira, mollejas, chinchulines])) :- 
+    gusto(jeanGourmet, Comida).
   test(gustoJocelynVacio, fail) :- 
     gusto(jeanGourmet, vacio).
 
