@@ -86,5 +86,54 @@ atiende(zin, caniggia).
 atiende(cureta, pedemonti).
 atiende(cureta, basualdo).
 
-% chanta(Quien)/1
-chanta(Quien) :-
+% chanta(Medico)/1
+chanta(Medico) :- 
+    atiende(Medico, _),
+    forall(atiende(Medico, Jugador), puedeSerSuspendido(Jugador)).
+
+% 5
+% nivelFalopez(Sustancia, Cantidad)/2
+nivelFalopez(efedrina, 10).
+nivelFalopez(cocaina, 100).
+nivelFalopez(extasis, 120).
+nivelFalopez(omeprazol, 5).
+
+% cuantaFalopaTiene(Jugador, Cantidad)/2
+% cuantaFalopaTiene(Jugador, Cantidad) :- True.
+
+
+cantidadFalopa(producto(_), 0).
+cantidadFalopa(sustancia(Sustancia), Cantidad) :- nivelFalopez(Sustancia, Cantidad).
+cantidadFalopa(sustancia(Sustancia), Cantidad) :- 
+    not(nivelFalopez(Sustancia, _)),
+    Cantidad is 0.
+% cantidadFalopa(compuesto(Compuesto), Cantidad) :-
+%     composicion(Compuesto, Ingredientes),
+
+% 6
+% medicoConProblemas(Medico)/1
+medicoConProblemas(Medico) :-
+    atiende(Medico, _),
+    tieneProblemas(Medico, Problematicos),
+    length(Problematicos, Cantidad),
+    3 =< Cantidad.
+
+% tieneProblemas(Medico, Problematicos)/2
+tieneProblemas(Medico, Problematicos) :-
+    findall(jugador(Jugador), (atiende(Medico, Jugador), puedeSerSuspendido(Jugador)), Problematicos).
+tieneProblemas(Medico, Problematicos) :-
+    findall(jugador(Jugador), (atiende(Medico, Jugador), seConocen(maradona, Jugador)), Problematicos).
+
+% 7
+% programaTVFantinesco(Lista)/1
+programaTVFantinesco(Lista) :-
+   findall(Jugador, jugador(Jugador), Jugadores),
+   jugadoresFaloperos(Jugadores, Lista).
+
+jugadoresFaloperos([], _).
+jugadoresFaloperos([Jugador|Jugadores], Lista) :-
+    puedeSerSuspendido(Jugador),
+    jugadoresFaloperos(Jugadores, [Jugador|Lista]).
+jugadoresFaloperos([Jugador|Jugadores], Lista) :-
+    not(puedeSerSuspendido(Jugador)),
+    jugadoresFaloperos(Jugadores, Lista).
