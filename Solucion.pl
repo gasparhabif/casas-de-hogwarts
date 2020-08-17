@@ -140,10 +140,9 @@ programaTVFantinesco(Lista) :-
    findall(Jugador, jugador(Jugador), Jugadores),
    jugadoresFaloperos(Jugadores, Lista).
 
-jugadoresFaloperos([], _).
-jugadoresFaloperos([Jugador|Jugadores], Lista) :-
+jugadoresFaloperos([], []).
+jugadoresFaloperos([Jugador|Jugadores], [Jugador|Lista]) :-
     puedeSerSuspendido(Jugador),
-    jugadoresFaloperos(Jugadores, [Jugador|Lista]).
-jugadoresFaloperos([Jugador|Jugadores], Lista) :-
-    not(puedeSerSuspendido(Jugador)),
+    jugadoresFaloperos(Jugadores, Lista).
+jugadoresFaloperos([_|Jugadores], Lista) :-
     jugadoresFaloperos(Jugadores, Lista).
