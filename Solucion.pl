@@ -39,7 +39,6 @@ tomo(pedemonti, Que) :-
 % 1.c Gracias al principio de universo cerrado presente en Prolog
 % no es necesario modelar que "basualdo no toma cocacola"
 
-
 % 2
 % puedeSerSuspendido(Quien)/1
 puedeSerSuspendido(Quien) :-
@@ -99,16 +98,27 @@ nivelFalopez(extasis, 120).
 nivelFalopez(omeprazol, 5).
 
 % cuantaFalopaTiene(Jugador, Cantidad)/2
-% cuantaFalopaTiene(Jugador, Cantidad) :- True.
+cuantaFalopaTiene(Jugador, Cantidad) :- 
+    findall(Consumible, tomo(Jugador, Consumible), Consumidos),
+    maplist(nivelDeAlteracion, Consumidos, Falopas),
+    sumlist(Falopas, Cantidad).
 
-
-cantidadFalopa(producto(_), 0).
-cantidadFalopa(sustancia(Sustancia), Cantidad) :- nivelFalopez(Sustancia, Cantidad).
-cantidadFalopa(sustancia(Sustancia), Cantidad) :- 
+% nivelDeAlteracion(Consumible, Cantidad)/2
+nivelDeAlteracion(producto(_), 0).
+nivelDeAlteracion(sustancia(Sustancia), Cantidad) :- nivelFalopez(Sustancia, Cantidad).
+nivelDeAlteracion(sustancia(Sustancia), Cantidad) :- 
     not(nivelFalopez(Sustancia, _)),
     Cantidad is 0.
-% cantidadFalopa(compuesto(Compuesto), Cantidad) :-
-%     composicion(Compuesto, Ingredientes),
+nivelDeAlteracion(compuesto(Compuesto), Cantidad) :-
+    composicion(Compuesto, Ingredientes),
+    maplist(alteracionCompuestos, Ingredientes, FalopezIngredientes),
+    sumlist(FalopezIngredientes, Cantidad). 
+
+% alteracionCompuestos(Ingrediente, Cantidad)/2
+alteracionCompuestos(Ingrediente, Cantidad) :- nivelFalopez(Ingrediente, Cantidad).
+alteracionCompuestos(Ingrediente, Cantidad) :- 
+    not(nivelFalopez(Ingrediente, _)),
+    Cantidad is 0.    
 
 % 6
 % medicoConProblemas(Medico)/1
