@@ -1,2 +1,2 @@
-# Practica Parcial - Café Veloz
-[Consigna](https://4924d24e-a-62cb3a1a-s-sites.googlegroups.com/site/paradigmasdeprogramacion/material/parciales/LOG_CafeVeloz_20111C.pdf?attachauth=ANoY7cpE0yLOVxdc0QWE6rURlnZpQxB8T-tfyvxw_faDEMZrJXi27vhIcwU7GJLLFblpbDk5crZAj-8lG9GsYkC6wQc9wZpP1KKYpJDYIF5n6Bxf0FUfGVkVcY_GEuKtgInOjwfg9hr42JOm8WsZflYL9SuSw8iidMHlWqJoKEmhvuz3OgluBRgSSLJaYOH3zoL7BC0yOSAU9Xof5D0wT80Nun8oIHzjrKZnDUcyao_eDE-gKyg0ap_jTLfT6J73Dz_e4s94_fJ9EWPKutGqt-bj8rEbwvsF8Q%3D%3D&attredirects=1)
+# Practica Parcial - Las Casas de Hogwarts
+[Consigna](https://docs.google.com/document/d/e/2PACX-1vR9SBhz2J3lmqcMXOBs1BzSt7N1YWPoIuubAmQxPIOcnbn5Ow9REYt4NXQzOwXXiUaEQ4hfHNEt3_C7/pub)
